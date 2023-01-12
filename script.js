@@ -1,7 +1,7 @@
 //const translateAPIkey = 'AIzaSyBD1YPYxIGxb0Fs4qjXKgba41XhADpNF-8'
 
 
-userSearch = 'Italy'
+const userSearch = 'Greece'
 
 function getTranslateAPI() {
 
@@ -28,32 +28,38 @@ function getTranslateAPI() {
   })
 }
 
+const $container = $('.container')
 
 function responseFunction(data) {
 
   //VARIABLES 
-  const dataCurrencies = data[0].currencies
-  const dataLanguage = data[0].languages
+  const dataCurrencies = JSON.stringify( data[0].currencies).split("\"")[1]//JSON.stringify()  .split("\"")[1]
+  const dataLanguage = JSON.stringify(data[0].languages).split("\"")[3]//JSON.stringify() .split("\"")[3]
   const dataFlag = data[0].flags.png
-  
-  //console.log(dataCurrencies)
-  //console.log(dataLanguage)
-  //console.log(dataFlag)
 
-  const $container = $('.container')
+  // const dataCurrenciesStr = JSON.stringify (Object.getOwnPropertyNames(dataCurrencies)[0]).slice(1,4)
+  
+  
+  console.log(dataCurrencies)
+  console.log(dataLanguage)
+  console.log(dataFlag)
+
+  
   const $pCurrency = $('<p>')
   const $pLanguage = $('<p>')
   const $imgFlag = $('<img>')
+  const $divData = $('<div>')
 
   //ATTRIBUTES CLASSES TEXT CONTENT
   $pCurrency.text(`Currency: `+dataCurrencies)
   $pLanguage.text(`Language: `+dataLanguage)
-  $imgFlag.attr('src', +$imgFlag)
+  $imgFlag.attr("src", dataFlag)
 
   //APPENDING!
-  $container.append($pCurrency)
-  $container.append($pLanguage)
-  $container.append($imgFlag)
+  $container.append($divData)
+  $divData.append($pCurrency)
+  $divData.append($pLanguage)
+  $divData.append($imgFlag)
 }
 
 /*
