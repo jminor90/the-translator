@@ -8,9 +8,21 @@ const exchange1 = 'USD'
 const exchange2= 'GBP'
 const exchangeURL = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${exchange1}/${exchange2}`;
 
+function getAPI() {
 
-  fetch(exchangeURL)
+  fetch(latestURL)
   .then((response) => response.json())
-  .then((data) => console.log(data));
+  .then((data) => responseFunction(data));  
+};
 
-  let amountInput = $userAmount.value; 
+function responseFunction(data) {
+const conversionRates = data.conversion_rates;
+  console.log(conversionRates)
+}
+getAPI();
+
+
+ /* let amountInput = $userAmount.value; 
+  const $container = $('.container');*/
+
+  
