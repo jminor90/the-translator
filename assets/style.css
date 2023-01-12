@@ -40,8 +40,19 @@ background: #001f3d;
 border-radius: 15px;
 color: #F8DCBF;
 }
+main{
+  background-color: #001f3d;
+}
+.column {
+float: left;
+width: 50%;
+padding: 10px;  
+position: absolute;
+width: 615px;
+height: 624px;
+left: 83px;
+top: 208px;
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
+background: #F8DCBF;
+border-radius: 15px;
 }
