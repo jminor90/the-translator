@@ -1,3 +1,4 @@
+console.log(Todd);
 const apiKeyT = `e2d1ab7e58051d42162f50b1`;
 const $userAmount = document.querySelector('#userAmount');
 const $exchange1Drop = document.querySelector('#amountDrop');
@@ -16,4 +17,4 @@ const exchangeURL = `https://v6.exchangerate-api.com/v6/${apiKeyT}/pair/${exchan
   .then((response) => response.json())
   .then((data) => console.log(data));
 
-  let amountInput = $userAmount.ariaValueMax;
+  let amountInput = $userAmount.value; 
