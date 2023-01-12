@@ -1,7 +1,9 @@
-/* * {
-  border: 2px solid black;
-} */
+/*overal html styling*/
+html{
+  background-color:#001f3d;
+}
 
+/*header styling*/
 .header{
 box-sizing: border-box;
 position: absolute;
@@ -40,8 +42,58 @@ background: #001f3d;
 border-radius: 15px;
 color: #F8DCBF;
 }
+/*body styling*/
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/*main styling including exchange and translation boxes*/
+main { 
+margin-top: 300px;
+}
+.row{
+  margin-left: 310px;
+}
+.column {
+float: left;
+width: 50%;
+padding: 10px;  
+width: 615px;
+height: 624px;
+background: #F8DCBF;
+border-radius: 15px;
+margin-left: 50px;
+}
+.column input[type=search]{ 
+text-align: center;
+color:#F8DCBF;
+width: 238px;
+height: 62px;
+left: 129px;
+top: 253px;
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
+background: #001F3D;
+border-radius: 15px;
+}
+select {
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 15px;
+}
+
+/*footer styling*/
+footer{
+display:flex;
+justify-content: center;
+align-items: center;
+position:fixed;
+bottom: 0;
+width: 100%;
+height: 90px;
+left: 0px;
+top: 934px;
+
+background: #FA9939;
+margin-top: auto;
 }
