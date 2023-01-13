@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href ="assets/style.css">
     <script type="text/javascript" defer src="script.js"></script>
 <!--<script type="text/javascript" defer src="script.js"></script>--> 
@@ -15,11 +16,11 @@
 
 <body>
 <div class="header">
-<h1 class="text-3xl font-bold">
+<h1 class="text-7xl font-bold">
 The Tran$lator
 </h1>
 <form>
-    <input type="search" id="searchBar" placeholder="Enter Your Destination...">
+    <input type="text" id="searchBar" placeholder="Enter Your Destination...">
     <button type="submit" id="submitButton">Submit</button>
 </form>
 </div>
@@ -31,8 +32,8 @@ The Tran$lator
         <select name="dropdown" id="amountDrop">
             <option value="AED">AED</option>
             <option value="AFN">AFN</option>
-            <option value="ALL">ALL</option>option>
-            <option value="AMD">AMD</option>$</option>
+            <option value="ALL">ALL</option>
+            <option value="AMD">AMD</option>
             <option value="ANG">ANG</option>
             <option value="AOA">AOA</option>
             <option value="ARS">ARS</option>
@@ -175,7 +176,7 @@ The Tran$lator
             <option value="TZS">TZS</option>
             <option value="UAH">UAH</option>
             <option value="UGX">UGX</option>
-            <option value="USD">USD</option>
+            <option value ="USD" selected>USD</option>
             <option value="UYU">UYU</option>
             <option value="UZS">UZS</option>
             <option value="VES">VES</option>
@@ -193,13 +194,13 @@ The Tran$lator
             <option value="ZWL">ZWL</option>
         </select> 
 
-<button id="search">Search</button>
+<button id="searchBtn">Search</button>
 
-    <select name="dropdown" id="amountDrop">
+    <select name="dropdown" id="resultDrop">
         <option value="AED">AED</option>
         <option value="AFN">AFN</option>
-        <option value="ALL">ALL</option>option>
-        <option value="AMD">AMD</option>$</option>
+        <option value="ALL">ALL</option>
+        <option value="AMD">AMD</option>
         <option value="ANG">ANG</option>
         <option value="AOA">AOA</option>
         <option value="ARS">ARS</option>
@@ -342,8 +343,8 @@ The Tran$lator
         <option value="TZS">TZS</option>
         <option value="UAH">UAH</option>
         <option value="UGX">UGX</option>
-        <option value selected="USD">USD</option>
-        <option value="UYU">UYU</option>
+        <option value="USD">USD</option>
+        <option value="UYU" selected>UYU</option>
         <option value="UZS">UZS</option>
         <option value="VES">VES</option>
         <option value="VND">VND</option>
@@ -368,9 +369,11 @@ The Tran$lator
 
     <div class="column container" id="CountryLang">
         <h2>Language, currency type and flag</h2>
+    <div>
         <input type="search" id="language1" placeholder="Enter Current Language...">
         <input type="search" id="language2" placeholder="Enter Desired Language... ">
         </select>
+        </div>
     </div>
 </div>
 
