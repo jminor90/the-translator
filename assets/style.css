@@ -42,6 +42,20 @@ background: #001f3d;
 border-radius: 15px;
 color: #F8DCBF;
 }
+
+.header button[type=submit]{
+text-align: center;
+font-size: 20px;
+width: 100px;
+height: 51px;
+left: 35px;
+top: 31px;
+
+background: #001f3d;
+border-radius: 15px;
+color: #F8DCBF;
+}
+
 /*body styling*/
 body{
   min-height: 100vh;
@@ -65,6 +79,7 @@ background: #F8DCBF;
 border-radius: 15px;
 margin-left: 50px;
 }
+/*text, color and shape styling for all search bars and dropdownsfeatured in columns*/
 .column input[type=search]{ 
 text-align: center;
 color:#F8DCBF;
@@ -76,10 +91,15 @@ top: 253px;
 background: #001F3D;
 border-radius: 15px;
 }
+
 select {
   padding: 10px 20px;
   border-radius: 5px;
   margin-left: 15px;
+}
+/*placement for search bars featured in colum 2*/
+.language2{
+  
 }
 
 /*footer styling*/
