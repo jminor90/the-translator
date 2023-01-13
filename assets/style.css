@@ -16,6 +16,7 @@ background: #FA9939;
 border: 2px solid #f8dcbf;
 }
 h1{
+  font-family: 'Bebas Neue', sans-serif;
   color: black;
   display: inline; 
   text-align: center;
@@ -29,11 +30,11 @@ h1{
   border-radius: 15px;
 }
 
-.header input[type=search]{
-position: absolute;
+.header input[type=text]{
+position: relative;
 text-align: center;
 font-size: 20px;
-width: 484px;
+width: 350px;
 height: 51px;
 left: 35px;
 top: 31px;
@@ -44,6 +45,7 @@ color: #F8DCBF;
 }
 
 .header button[type=submit]{
+position: relative;
 text-align: center;
 font-size: 20px;
 width: 100px;
