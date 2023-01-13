@@ -8,8 +8,8 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href ="assets/style.css">
     <script type="text/javascript" defer src="script.js"></script>
-   <!--<script type="text/javascript" defer src="script.js"></script>--> 
-    <script type="text/javascript" defer src="toddscript.js"></script>
+   <!--<script type="text/javascript" defer src="script.js"></script> 
+    <script type="text/javascript" defer src="toddscript.js"></script>-->
     <title>The Tran$lator</title>
 </head>
 
@@ -18,7 +18,10 @@
 <h1 class="text-3xl font-bold">
 The Tran$lator
 </h1>
+<form>
     <input type="search" id="searchBar" placeholder="Enter Your Destination...">
+    <button id="submitButton">Submit</button>
+</form>
 </div>
 <main>
     <div class="row">
@@ -33,7 +36,7 @@ The Tran$lator
         </select>
 </div>
 
-    <div class="column" id="CountryLang">
+    <div class="column container" id="CountryLang">
         <h2>Language, currency type and flag</h2>
         <select name="dropdown" id="Language 1">
             <option value="Language">language</option>
