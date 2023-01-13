@@ -83,6 +83,8 @@ function responseFunction(data) {
   $divData.append($pLanguage1)
   $divData.append($pLanguage2)
   $divData.append($imgFlag)
+
+  document.getElementById('amountDrop').value = dataCurrencies
 }
 
 function buttonFunction(event) {
@@ -92,6 +94,8 @@ function buttonFunction(event) {
 
   console.log(seachBarVal)
   getTranslateAPI(seachBarVal)
+
+  
 }
 
 $submitBtn.on("click", buttonFunction)
