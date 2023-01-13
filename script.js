@@ -84,7 +84,8 @@ function responseFunction(data) {
   $divData.append($pLanguage2)
   $divData.append($imgFlag)
 
-  document.getElementById('amountDrop').value = dataCurrencies
+  document.getElementById('resultDrop').value = dataCurrencies
+  calculate();
 }
 
 function buttonFunction(event) {
