@@ -23,9 +23,15 @@ function calculate() {
   });
 }
 
+
 function BtnFunction() {
   calculate()
   console.log("this button has been clicked.")
 }
 
+/*this will change to exBtn*/
 searchBtn.on('click', BtnFunction);
+
+
+
+
