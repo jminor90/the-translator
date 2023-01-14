@@ -1,19 +1,32 @@
-//remember to uncomment Todd's code before comitting :D
-
 const $searchBar = $('#searchBar')
 const $submitBtn = $('#submitButton')
-const $container = $('.container')
+const $containerDiv = $('.containerDiv')
 
+const $translateResult = $('#translateResult')
+
+const $userTranslateInput = $('#userTranslateInput')
+const $LanguageSubmit = $('#LanguageSubmit')
 
 let userSearch = $searchBar.val()
 
+const $language1Input = $('#language1Input')
+let language1Input = $language1Input.val()
 
+const $language2Input = $('#language2Input')
+let language2Input = $language2Input.val()
 
-function getTranslateAPI(seachBarVal) {
+const $resultDrop = $('#resultDrop')
+const $resultFlag = $('#resultFlag')
+const $resultSymbol = $('#resultSymbol')
+
+const translateAPIkey = `AIzaSyBD1YPYxIGxb0Fs4qjXKgba41XhADpNF-8`;
+
+const cloudURL = `https://translation.googleapis.com/language/translate/v2/languages?key=${translateAPIkey}&target=en`
+
+//REST COUNTRY API
+function getRestCountryAPI(seachBarVal) {
 
   userSearch = seachBarVal
-
-  //const cloudURL = `https://translation.googleapis.com/language/translate/v2/languages?key=${translateAPIkey}`
 
   const countriesURL = `https://restcountries.com/v3.1/name/${userSearch}`;
 
@@ -31,23 +44,26 @@ function getTranslateAPI(seachBarVal) {
 
     console.log(data)
 
-    responseFunction(data)
+    dataFunction(data)
 
   })
 }
 
+//DATA FUNCTION -> PRINT TO SCREEN
+function dataFunction(data) {
 
-function responseFunction(data) {
-
-  //console.log(data[0].languages)
-
-  $container.html('')
+  $resultFlag.html('');
+  $resultSymbol.html('');
 
   //VARIABLES 
-  const dataCurrencies = JSON.stringify( data[0].currencies).split("\"")[1]//JSON.stringify()  .split("\"")[1]
-  const dataLanguage = JSON.stringify(data[0].languages).split("\"")[3]//JSON.stringify() .split("\"")[3]
+  const dataCurrencies = JSON.stringify( data[0].currencies).split("\"")[1]
+  const dataLanguage = JSON.stringify(data[0].languages).split("\"")[3]
   const dataLanguage2 = JSON.stringify(data[0].languages).split("\"")[7]
   const dataFlag = data[0].flags.png
+
+  const dataSymbolCurrency = JSON.stringify( data[0].currencies).split("\"")[9]
+
+  console.log(dataSymbolCurrency)
 
   // const dataCurrenciesStr = JSON.stringify (Object.getOwnPropertyNames(dataCurrencies)[0]).slice(1,4)
   
@@ -57,66 +73,156 @@ function responseFunction(data) {
   console.log('Language 2 '+dataLanguage2)
   console.log(dataFlag)
 
+  $language1Input.val(dataLanguage)
   
-  
-  const $pCurrency = $('<p>')
+  const $pCurrencySymbol = $('<p>')
   const $pLanguage1 = $('<p>')
   const $pLanguage2 = $('<p>')
   const $imgFlag = $('<img>')
   const $divData = $('<div>')
 
   //ATTRIBUTES CLASSES TEXT CONTENT
-  $pCurrency.text(`Currency: `+dataCurrencies)
-  $pLanguage1.text(`Language 1: `+dataLanguage)
-
+  $pCurrencySymbol.text(`Currency Symbol: `+dataSymbolCurrency)
+  //$pLanguage1.text(`Language: `+dataLanguage)
   if (!dataLanguage2) {
-    $pLanguage2.text(``);
+    $language2Input.val(``);
   } else { 
-  $pLanguage2.text(`Language 2: `+dataLanguage2)
-  
+  //$pLanguage2.text(`Language 2: `+dataLanguage2)
+  $language2Input.val(dataLanguage2)
 }
+
   $imgFlag.attr("src", dataFlag)
 
   //APPENDING!
-  $container.append($divData)
-  $divData.append($pCurrency)
-  $divData.append($pLanguage1)
-  $divData.append($pLanguage2)
-  $divData.append($imgFlag)
+  //$containerDiv.append($divData)
+  //$divData.append($pCurrency)
+  //$divData.append($pLanguage1)
+  //$divData.append($pLanguage2)
+  //$containerDiv.append($imgFlag)
 
-  document.getElementById('resultDrop').value = dataCurrencies
+  $resultFlag.append($imgFlag)
+  $resultSymbol.append($pCurrencySymbol)
+
+  //Changes one of the Dropdown menus in the currency exchange and runs calculate from toddscript.js
+  $resultDrop.val(dataCurrencies)
+  //document.getElementById('resultDrop').value = dataCurrencies
+
   calculate();
 }
 
-function buttonFunction(event) {
+//DESTINATION BUTTON FUNCTION -> REST COUNTRY API
+function destinationButton(event) {
   event.preventDefault();
   const seachBarVal = $searchBar.val()
   console.log("Button Clicked")
 
   console.log(seachBarVal)
-  getTranslateAPI(seachBarVal)
+  getRestCountryAPI(seachBarVal)
 
   
 }
 
-$submitBtn.on("click", buttonFunction)
+function languageFunction(event) {
+  event.preventDefault()
 
-/*
-function submitTestFunction (event) {
-  event.preventDefault();
-  console.log("form submit")
-}
-
-$('#searchBar').submit("submit", submitTestFunction)
-
-
-*/
-
-/*
-function renderCountryData (data) {
+  const seachBarVal = $language1Input.val()
+  console.log("Button Clicked")
   
+  if (seachBarVal === undefined) {
+    alert("You entered nothing")
+    return;
+  } else {
+
+    nametoCodeAPI(seachBarVal)
+  }
+
+  //console.log('The user entered: '+seachBarVal)
+
+  
+}
+
+function nametoCodeAPI(seachBarVal) {
+  fetch (cloudURL)
+  .then(function(serverResponse) {
+    if (serverResponse.status !== 200 ) {
+      alert("UH OH"+serverResponse.status)
+      console.log("uh oh"+serverResponse.status)
+    } else {
+      return serverResponse.json();
+      
+    }
+  })
+  .then(function(data) {
+
+    nameToCode(data, seachBarVal)
+  })
 
 }
-*/
 
-//getTranslateAPI();
+function nameToCode(data, SteveSearchBar) {
+  //const found = data.languages.find()
+
+  const found = data.data.languages.find(ElementBob => SteveSearchBar == ElementBob.name)
+  const foundLang = found.language
+
+  //console.log(data)
+  //console.log(SteveSearchBar)
+  //console.log(foundLang)
+
+  translateAPI(foundLang)
+}
+
+function translateAPI(foundLang) {
+  let userTranslateInput = $userTranslateInput.val().trim()
+  console.log(userTranslateInput)
+
+  const translateURL = `https://translation.googleapis.com/language/translate/v2?key=${translateAPIkey}`
+
+  fetch (translateURL, {
+    method: "POST",
+    body: JSON.stringify({
+      q: userTranslateInput,
+      source: "en",
+      target: foundLang,
+      format: "text"
+    })
+  })
+  .then (function (serverResponse) {
+    if (serverResponse.status !== 200) {
+      alert("Oh No! Error: "+serverResponse.status)
+      console.log("Oh No! Error: "+serverResponse.status)
+    } else {
+      return serverResponse.json()
+    }
+  })
+  .then (function(translateData) {
+    //console.log(translateData)
+    renderResult(translateData)
+  })
+}
+
+function renderResult (translateData){
+
+  let translateResult = translateData.data.translations[0].translatedText
+
+  $translateResult.text(translateResult)
+  console.log(translateResult)
+  //console.log(translateResult.data.translations[0].translatedText)
+  //console.log("RenderResult happening here")
+}
+
+function destinationFunction(event) {
+  event.preventDefault()
+  let countryInput = $countryInput.val().trim()
+
+
+  console.log(countryInput)
+  getRestCountryAPI(countryInput)
+
+  //console.log("destinationFunction clicked")
+}
+
+
+$LanguageSubmit.on("click", languageFunction)
+
+$submitBtn.on("click", destinationButton)

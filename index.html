@@ -9,27 +9,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href ="assets/style.css">
     <script type="text/javascript" defer src="script.js"></script>
-<!--<script type="text/javascript" defer src="script.js"></script>--> 
     <script type="text/javascript" defer src="toddscript.js"></script>
     <title>The Tran$lator</title>
 </head>
 
 <body>
 <div class="header">
-<h1 class="text-7xl font-bold">
-The Tran$lator
-</h1>
-<form>
-    <input type="text" id="searchBar" placeholder="Enter Your Destination...">
-    <button type="submit" id="submitButton">Submit</button>
-</form>
+    <h1 class="text-7xl font-bold">
+    The Tran$lator
+    </h1>
+    <form>
+        <input type="text" id="searchBar" placeholder="Enter Your Destination...">
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
 </div>
 <main>
 <div class="row">
     <div class="column" id="currEx">
         <h2>Currency Exchange</h2>
-        <input type="search" id="userAmount" placeholder="Enter Dollar Amount">
-        <select name="dropdown" id="amountDrop">
+        
+        <div>
+            <input type="search" id="userAmount" placeholder="Enter Dollar Amount">
+        </div>
+        
+        <div>
+            <select name="dropdown" id="amountDrop">
             <option value="AED">AED</option>
             <option value="AFN">AFN</option>
             <option value="ALL">ALL</option>
@@ -192,11 +196,14 @@ The Tran$lator
             <option value="ZAR">ZAR</option>
             <option value="ZMW">ZMW</option>
             <option value="ZWL">ZWL</option>
-        </select> 
+            </select>
 
-<button id="searchBtn">Search</button>
-
-    <select name="dropdown" id="resultDrop">
+        </div>
+        <div>
+            <button id="searchBtn">Search</button>
+        </div>
+        <div>
+            <select name="dropdown" id="resultDrop">
         <option value="AED">AED</option>
         <option value="AFN">AFN</option>
         <option value="ALL">ALL</option>
@@ -359,22 +366,55 @@ The Tran$lator
         <option value="ZAR">ZAR</option>
         <option value="ZMW">ZMW</option>
         <option value="ZWL">ZWL</option>
-    </select> 
-<div id="exchangeResult">
+            </select>
 
-</div>
+        
 
+            <p id="resultFlag">
 
-</div>
+            </p>
+        </div> 
+        <div id="exchangeResult">
 
-    <div class="column container" id="CountryLang">
-        <h2>Language, currency type and flag</h2>
-    <div>
-        <input type="search" id="language1" placeholder="Enter Current Language...">
-        <input type="search" id="language2" placeholder="Enter Desired Language... ">
-        </select>
         </div>
+        <p id="resultSymbol">
+
+        </p>
+
     </div>
+
+</div>
+
+<div class="column container" id="CountryLang">
+    <h2>Language Traslator</h2>
+    <div>
+        <form>
+            <input type="search" id="userTranslateInput" placeholder="Translate Input">
+            <div>
+                <input type="search" id="language1Input" placeholder="Language 1">
+                <button id="LanguageSubmit">LanguageSubmit</button>
+            </div>
+            <div>
+                <input type="search" id="language2Input" placeholder="Language 2 ">
+                <!--
+                <button id="LanguageSubmit2">LanguageSubmit2</button>
+                -->
+            </div>
+        </form>
+    </div>
+    <div>
+        <h3>
+            Translation Here:
+        </h3>
+        <p id="translateResult">
+                
+        </p>
+    </div>
+    <div class="containerDiv" id="resultDiv">
+
+    </div>
+</div>
+
 </div>
 
 </main>
