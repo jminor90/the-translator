@@ -127,8 +127,15 @@ margin-top: auto;
 }
 
 button {
-  background-color: lightblue;
-  border: solid 1px;
+  background-color: #FA9939;
+border: solid 1px;
+border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  main,nav {
+    flex-direction: column;
+  }
 }
 
 /*The Modal*/
