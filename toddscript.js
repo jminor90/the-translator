@@ -8,6 +8,8 @@ const exchangeURL = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${$exchan
 const searchBtn = $('#searchBtn');
 const currentDate = dayjs().format('MMMM DD, YYYY');
 const $currentDate = $('#currentDate');
+const $closedSpan = $('#closedSpan');
+const $ultModal = $("#ultModal");
 
 const rateEL = $('#exchangeResult');
 
@@ -36,6 +38,24 @@ function BtnFunction() {
 /*this will change to exBtn*/
 searchBtn.on('click', BtnFunction);
 
+
+var modal = document.getElementById("ultModal");
+
+// Get the button that opens the modal
+var btn3 = document.getElementById("ultBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn3.onclick = function() {
+  modal.style.display = "block";
+  
+}
+
+$closedSpan.click("click", function() {
+  $ultModal.css('display', 'none')
+})
 
 
 

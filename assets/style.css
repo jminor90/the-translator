@@ -148,7 +148,6 @@ border-radius: 5px;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-
 }
 
 /* Modal Content/Box */
@@ -175,3 +174,7 @@ border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
 } 
+
+#modalContent {
+  background-color: white;
+}
