@@ -25,7 +25,20 @@
     <form>
         <input type="text" id="searchBar" placeholder="Enter Your Destination...">
         <button type="submit" id="submitButton">Submit</button>
+
+        <div id="alertModal" class="modal" style="display: none">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+            <span class="close" id="closeSpan">&times;</span>
+            <p id = "alertText">ALERT</p>
+            </div>
+        
+        </div> 
     </form>
+
+
+
 </div>
 <main>
 <div class="row">
@@ -398,15 +411,20 @@
                 <input type="search" id="language1Input" placeholder="Language 1">
                 <button id="LanguageSubmit">LanguageSubmit</button>
             </div>
+            <!--
             <div>
                 <input type="search" id="language2Input" placeholder="Language 2 ">
-                <!--
+                
                 <button id="LanguageSubmit2">LanguageSubmit2</button>
-                -->
+                
             </div>
+            -->
         </form>
     </div>
     <div>
+        <div class="containerDiv" id="resultDiv">
+
+        </div>
         <h3>
             Translation Here:
         </h3>
@@ -414,9 +432,7 @@
                 
         </p>
     </div>
-    <div class="containerDiv" id="resultDiv">
 
-    </div>
 </div>
 
 </div>
