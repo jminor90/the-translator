@@ -29,6 +29,9 @@ h1{
   background: #F8DCBF;
   border-radius: 15px;
 }
+span.greenMon{
+  color:green;
+}
 
 .header input[type=text]{
 position: relative;
@@ -68,9 +71,11 @@ body{
 main { 
 margin-top: 300px;
 }
-.row{
-  margin-left: 310px;
-}
+
+/*.row {
+  margin-left: 300px;
+}*/
+
 .column {
 float: left;
 width: 50%;
@@ -79,8 +84,9 @@ width: 615px;
 height: 624px;
 background: #F8DCBF;
 border-radius: 15px;
-margin-left: 50px;
+margin-left: 200px;
 }
+
 /*text, color and shape styling for all search bars and dropdownsfeatured in columns*/
 .column input[type=search]{ 
 text-align: center;
@@ -121,8 +127,15 @@ margin-top: auto;
 }
 
 button {
-  background-color: lightblue;
-  border: solid 1px;
+  background-color: #FA9939;
+border: solid 1px;
+border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  main,nav {
+    flex-direction: column;
+  }
 }
 
 /*The Modal*/
