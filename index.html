@@ -20,7 +20,7 @@
 
     </div>
     <h1 class="text-7xl font-bold">
-    The Tran$lator
+    The Tran<span class="greenMon">$</span>lator
     </h1>
     <form>
         <input type="text" id="searchBar" placeholder="Enter Your Destination...">
@@ -31,11 +31,12 @@
 <div class="row">
     <div class="column" id="currEx">
         <h2>Currency Exchange</h2>
-        
+
         <div>
             <input type="search" id="userAmount" placeholder="Enter Dollar Amount">
         </div>
-        
+
+        <form>
         <div>
             <select name="dropdown" id="amountDrop">
             <option value="AED">AED</option>
@@ -204,7 +205,7 @@
 
         </div>
         <div>
-            <button id="searchBtn">Search</button>
+            <button id="searchBtn">Exchange</button>
         </div>
         <div>
             <select name="dropdown" id="resultDrop">
@@ -371,26 +372,23 @@
         <option value="ZMW">ZMW</option>
         <option value="ZWL">ZWL</option>
             </select>
-
-        
-
-            <p id="resultFlag">
-
-            </p>
         </div> 
+</form>
+        <p id="resultFlag">
+            
+        </p>
         <div id="exchangeResult">
 
         </div>
         <p id="resultSymbol">
 
         </p>
-
     </div>
 
 </div>
 
 <div class="column container" id="CountryLang">
-    <h2>Language Traslator</h2>
+    <h2>Language Translator</h2>
     <div>
         <form>
             <input type="search" id="userTranslateInput" placeholder="Translate Input">
