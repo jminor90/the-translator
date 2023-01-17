@@ -267,16 +267,3 @@ $submitBtn.on("click", destinationButton)
 $closeSpan.click("click", function() {
   $alertModal.css('display', 'none')
 })
-
-/*
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-*/
-/*
-$closeSpan.on = function() {
-  modal.style.display = "none";
-}
-*/
