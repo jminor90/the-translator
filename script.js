@@ -23,6 +23,12 @@ const translateAPIkey = `AIzaSyBD1YPYxIGxb0Fs4qjXKgba41XhADpNF-8`;
 
 const cloudURL = `https://translation.googleapis.com/language/translate/v2/languages?key=${translateAPIkey}&target=en`
 
+//Alert Modal
+const $alertModal = $('#alertModal')
+const $closeSpan = $('#closeSpan')
+const $alertText = $('#alertText')
+
+
 //REST COUNTRY API
 function getRestCountryAPI(seachBarVal) {
 
@@ -33,8 +39,16 @@ function getRestCountryAPI(seachBarVal) {
   fetch (countriesURL)
   .then(function(serverResponse) {
     if (serverResponse.status !== 200 ) {
-      alert("UH OH"+serverResponse.status)
-      console.log("uh oh"+serverResponse.status)
+      
+      //Alert Modal Appears 
+      $alertModal.css('display', 'block')
+      $alertText.text("Did you enter a valid country? Server Response: "+serverResponse.status)
+
+      /*
+      alert("UH OH"+serverResponse.status)  
+      
+      */
+      console.log("uh oh: "+serverResponse.status)
     } else {
       return serverResponse.json();
     }
@@ -42,7 +56,7 @@ function getRestCountryAPI(seachBarVal) {
 
   .then (function(data) {
 
-    console.log(data)
+    //console.log(data)
 
     dataFunction(data)
 
@@ -62,21 +76,19 @@ function dataFunction(data) {
   const dataFlag = data[0].flags.png
 
   const dataSymbolCurrency = JSON.stringify( data[0].currencies).split("\"")[9]
-
-  console.log(dataSymbolCurrency)
-
-  // const dataCurrenciesStr = JSON.stringify (Object.getOwnPropertyNames(dataCurrencies)[0]).slice(1,4)
   
-  
+  /*
+  console.log(dataSymbolCurrency) 
   console.log(dataCurrencies)
   console.log('Language 1 '+dataLanguage)
   console.log('Language 2 '+dataLanguage2)
   console.log(dataFlag)
+  */
 
   $language1Input.val(dataLanguage)
   
   const $pCurrencySymbol = $('<p>')
-  const $pLanguage1 = $('<p>')
+  //const $pLanguage1 = $('<p>')
   const $pLanguage2 = $('<p>')
   const $imgFlag = $('<img>')
   const $divData = $('<div>')
@@ -84,20 +96,21 @@ function dataFunction(data) {
   //ATTRIBUTES CLASSES TEXT CONTENT
   $pCurrencySymbol.text(`Currency Symbol: `+dataSymbolCurrency)
   //$pLanguage1.text(`Language: `+dataLanguage)
+
   if (!dataLanguage2) {
-    $language2Input.val(``);
+    $pLanguage2.text(``);
   } else { 
-  //$pLanguage2.text(`Language 2: `+dataLanguage2)
-  $language2Input.val(dataLanguage2)
+  $pLanguage2.text(`Secondary Language: `+dataLanguage2)
+  //$language2Input.val(dataLanguage2)
 }
 
   $imgFlag.attr("src", dataFlag)
 
   //APPENDING!
-  //$containerDiv.append($divData)
+  $containerDiv.append($divData)
   //$divData.append($pCurrency)
   //$divData.append($pLanguage1)
-  //$divData.append($pLanguage2)
+  $divData.append($pLanguage2)
   //$containerDiv.append($imgFlag)
 
   $resultFlag.append($imgFlag)
@@ -105,18 +118,19 @@ function dataFunction(data) {
 
   //Changes one of the Dropdown menus in the currency exchange and runs calculate from toddscript.js
   $resultDrop.val(dataCurrencies)
-  //document.getElementById('resultDrop').value = dataCurrencies
 
   calculate();
+
 }
 
 //DESTINATION BUTTON FUNCTION -> REST COUNTRY API
 function destinationButton(event) {
   event.preventDefault();
   const seachBarVal = $searchBar.val()
+  /*
   console.log("Button Clicked")
-
   console.log(seachBarVal)
+  */
   getRestCountryAPI(seachBarVal)
 
   
@@ -126,10 +140,13 @@ function languageFunction(event) {
   event.preventDefault()
 
   const seachBarVal = $language1Input.val()
-  console.log("Button Clicked")
+  //console.log("Button Clicked")
   
   if (seachBarVal === undefined) {
-    alert("You entered nothing")
+
+    $alertModal.css('display', 'block')
+    $alertText.text("You entered nothing.")
+    /*alert("You entered nothing")*/
     return;
   } else {
 
@@ -145,8 +162,13 @@ function nametoCodeAPI(seachBarVal) {
   fetch (cloudURL)
   .then(function(serverResponse) {
     if (serverResponse.status !== 200 ) {
+
+      $alertModal.css('display', 'block')
+      $alertText.text("UH-OH: "+serverResponse.status)
+      /*
       alert("UH OH"+serverResponse.status)
       console.log("uh oh"+serverResponse.status)
+      */
     } else {
       return serverResponse.json();
       
@@ -160,21 +182,30 @@ function nametoCodeAPI(seachBarVal) {
 }
 
 function nameToCode(data, SteveSearchBar) {
-  //const found = data.languages.find()
-
   const found = data.data.languages.find(ElementBob => SteveSearchBar == ElementBob.name)
-  const foundLang = found.language
+  
+  // if Found Language is not a real language will catch
+  if (!found) {
+    $alertModal.css('display', 'block')
+    $alertText.text("Alert: Is that a valid language?")
+  } else {
 
-  //console.log(data)
-  //console.log(SteveSearchBar)
-  //console.log(foundLang)
+    const foundLang = found.language
 
-  translateAPI(foundLang)
+    translateAPI(foundLang)
+  }
+  
+
+  /*
+  console.log(data)
+  console.log(SteveSearchBar)
+  console.log(foundLang)
+  */
 }
 
 function translateAPI(foundLang) {
   let userTranslateInput = $userTranslateInput.val().trim()
-  console.log(userTranslateInput)
+  //console.log(userTranslateInput)
 
   const translateURL = `https://translation.googleapis.com/language/translate/v2?key=${translateAPIkey}`
 
@@ -189,7 +220,11 @@ function translateAPI(foundLang) {
   })
   .then (function (serverResponse) {
     if (serverResponse.status !== 200) {
-      alert("Oh No! Error: "+serverResponse.status)
+
+      /*alert("Oh No! Error: "+serverResponse.status)*/
+      $alertModal.css('display', 'block')
+      $alertText.text("UH-OH: "+serverResponse.status+" | Also cannot translate English to English.")
+
       console.log("Oh No! Error: "+serverResponse.status)
     } else {
       return serverResponse.json()
@@ -206,7 +241,7 @@ function renderResult (translateData){
   let translateResult = translateData.data.translations[0].translatedText
 
   $translateResult.text(translateResult)
-  console.log(translateResult)
+  //console.log(translateResult)
   //console.log(translateResult.data.translations[0].translatedText)
   //console.log("RenderResult happening here")
 }
@@ -226,3 +261,9 @@ function destinationFunction(event) {
 $LanguageSubmit.on("click", languageFunction)
 
 $submitBtn.on("click", destinationButton)
+
+
+//Modal Button Functionality
+$closeSpan.click("click", function() {
+  $alertModal.css('display', 'none')
+})
