@@ -68,6 +68,7 @@ function dataFunction(data) {
 
   $resultFlag.html('');
   $resultSymbol.html('');
+  $containerDiv.html('');
 
   //VARIABLES 
   const dataCurrencies = JSON.stringify( data[0].currencies).split("\"")[1]
@@ -88,31 +89,25 @@ function dataFunction(data) {
   $language1Input.val(dataLanguage)
   
   const $pCurrencySymbol = $('<p>')
-  //const $pLanguage1 = $('<p>')
   const $pLanguage2 = $('<p>')
   const $imgFlag = $('<img>')
   const $divData = $('<div>')
 
   //ATTRIBUTES CLASSES TEXT CONTENT
+  
   $pCurrencySymbol.text(`Currency Symbol: `+dataSymbolCurrency)
-  //$pLanguage1.text(`Language: `+dataLanguage)
 
   if (!dataLanguage2) {
     $pLanguage2.text(``);
   } else { 
   $pLanguage2.text(`Secondary Language: `+dataLanguage2)
-  //$language2Input.val(dataLanguage2)
 }
 
   $imgFlag.attr("src", dataFlag)
 
   //APPENDING!
   $containerDiv.append($divData)
-  //$divData.append($pCurrency)
-  //$divData.append($pLanguage1)
   $divData.append($pLanguage2)
-  //$containerDiv.append($imgFlag)
-
   $resultFlag.append($imgFlag)
   $resultSymbol.append($pCurrencySymbol)
 
@@ -146,7 +141,6 @@ function languageFunction(event) {
 
     $alertModal.css('display', 'block')
     $alertText.text("You entered nothing.")
-    /*alert("You entered nothing")*/
     return;
   } else {
 
@@ -155,7 +149,6 @@ function languageFunction(event) {
 
   //console.log('The user entered: '+seachBarVal)
 
-  
 }
 
 function nametoCodeAPI(seachBarVal) {
@@ -167,15 +160,14 @@ function nametoCodeAPI(seachBarVal) {
       $alertText.text("UH-OH: "+serverResponse.status)
       /*
       alert("UH OH"+serverResponse.status)
-      console.log("uh oh"+serverResponse.status)
       */
+      console.log("uh oh"+serverResponse.status)
     } else {
       return serverResponse.json();
       
     }
   })
   .then(function(data) {
-
     nameToCode(data, seachBarVal)
   })
 
@@ -221,7 +213,6 @@ function translateAPI(foundLang) {
   .then (function (serverResponse) {
     if (serverResponse.status !== 200) {
 
-      /*alert("Oh No! Error: "+serverResponse.status)*/
       $alertModal.css('display', 'block')
       $alertText.text("UH-OH: "+serverResponse.status+" | Also cannot translate English to English.")
 
@@ -250,10 +241,8 @@ function destinationFunction(event) {
   event.preventDefault()
   let countryInput = $countryInput.val().trim()
 
-
   console.log(countryInput)
   getRestCountryAPI(countryInput)
-
   //console.log("destinationFunction clicked")
 }
 
