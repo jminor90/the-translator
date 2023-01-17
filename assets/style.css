@@ -69,12 +69,9 @@ body{
 }
 /*main styling including exchange and translation boxes*/
 main { 
-margin-top: 300px;
+margin-top: 250px;
 }
 
-/*.row {
-  margin-left: 300px;
-}*/
 
 .column {
 float: left;
@@ -98,6 +95,12 @@ top: 253px;
 
 background: #001F3D;
 border-radius: 15px;
+}
+
+h2{
+  font-family: 'Bebas Neue', sans-serif ;
+  font-size: 30px;
+  text-align: center;
 }
 
 select {
@@ -127,9 +130,14 @@ margin-top: auto;
 }
 
 button {
-  background-color: #FA9939;
+background-color: #FA9939;
 border: solid 1px;
 border-radius: 5px;
+}
+
+button #ultBtn {
+
+
 }
 
 @media screen and (max-width: 768px) {
