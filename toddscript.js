@@ -6,8 +6,12 @@ const $exchangeResult = $('#exchangeResult');
 const latestURL = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
 const exchangeURL = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${$exchange1Drop}/${$exchange2Drop}`;
 const searchBtn = $('#searchBtn');
+const currentDate = dayjs().format('MMMM DD, YYYY');
+const $currentDate = $('#currentDate');
 
 const rateEL = $('#exchangeResult');
+
+$currentDate.text('Today is '+currentDate)
 
 function calculate() {
   const exchange_1 = $exchange1Drop.val();
