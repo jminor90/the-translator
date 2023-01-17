@@ -30,16 +30,16 @@ function calculate() {
 }
 
 
-function BtnFunction() {
+function BtnFunction(event) {
+  event.preventDefault()
   calculate()
-  console.log("this button has been clicked.")
 }
 
 /*this will change to exBtn*/
 searchBtn.on('click', BtnFunction);
 
 
-var modal = document.getElementById("ultModal");
+/*var modal = document.getElementById("ultModal");
 
 // Get the button that opens the modal
 var btn3 = document.getElementById("ultBtn");
@@ -50,12 +50,20 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal
 btn3.onclick = function() {
   modal.style.display = "block";
+  let exchange = $exchangeResult.text()
+  let translate = $translateResult.text()
+  let symbolCurr = $resultSymbol.val()
+  $('#exchangeResultMod').text(exchange)
+  $('#translateResultMod').text(translate)
+  $('#resultsSymbolMod').val(symbolCurr)
+
   
+
 }
 
 $closedSpan.click("click", function() {
   $ultModal.css('display', 'none')
-})
+})*/
 
 
 
