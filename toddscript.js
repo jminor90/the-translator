@@ -37,6 +37,7 @@ function BtnFunction(event) {
 
 /*this will change to exBtn*/
 searchBtn.on('click', BtnFunction);
+$userAmount.on('change', calculate); /*this is supposed to one thing but it adds another. The added function works for something else so it was left*/
 
 
 /*var modal = document.getElementById("ultModal");
