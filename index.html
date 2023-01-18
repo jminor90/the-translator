@@ -42,15 +42,15 @@
 </div>
 <main>
 
-    <div>
+    <div class="colCont">
     <div class="column" id="currEx">
         <h2>Currency Exchange</h2>
 
-        <div>
+        <div class="currency">
             <input type="search" id="userAmount" placeholder="Enter Dollar Amount">
         </div>
 
-        <form>
+        <form class="currDrop">
         <div>
             <select name="dropdown" id="amountDrop">
             <option value="AED">AED</option>
@@ -404,11 +404,11 @@
 <div class="column" id="CountryLang">
     <h2>Language Translator</h2>
     <div>
-        <form>
-            <input type="search" id="userTranslateInput" placeholder="Translate Input">
+        <form class="langTrans">
+            <input type="search" id="userTranslateInput" placeholder="Desired Translation">
             <div>
-                <input type="search" id="language1Input" placeholder="Language 1">
-                <button id="LanguageSubmit">LanguageSubmit</button>
+                <input type="search" id="language1Input" placeholder="Desired Language">
+                <button id="LanguageSubmit">Translate</button>
             </div>
             <!--
             <div>
@@ -424,7 +424,7 @@
         <div class="containerDiv" id="resultDiv">
 
         </div>
-        <h3>
+        <h3 class="trans">
             Translation Here:
         </h3>
         <p id="translateResult">
@@ -434,35 +434,18 @@
 
 </div>
 
-
 </div>
-
-<!--<button id="ultBtn">Maybe do Maybe Dont</button>
-
-
-<div id="ultModal" class="modal">
-
-<!-- Modal content -->
-<div id ="modalContent" class="modal-content">
-    <span id ="closedSpan" class="close">&times;</span>
-    <p>Hello There!</p>
-    <p id="resultFlag"></p>
-    <p id="exchangeResult"></p>
-    <p id="resultSymbol"></p>
-</div> 
-
-</div>
-
-
 
 
 </main>
-<div class="block">
-    <button id="ultBtn">Maybe do Maybe Dont</button>
-    </div>
+
 <footer>
-    <h3>
-        Created by Joshua Minor, Michaela Jackson and Todd Guerette
+    <h3 class="createdBy">
+        <p>Creators: <a href="https://github.com/jminor90" target="_blank">Joshua Minor</a></p>
+        &nbsp<p>, 
+        <a href="https://github.com/mijensine23" target="_blank">Michaela Jackson</a> and </p> &nbsp 
+        <p>
+        <a href="https://github.com/Bucket12" target="_blank">Todd Guerette</a></div></p>
     </h3>
 </footer>
 
