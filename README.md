@@ -14,7 +14,7 @@ In doing so, we have created an application that can instantly deliver quick fac
 - Enter a country name in the search bar and begin your search.
 - Use the first currency drop down menu to select the currency your country uses. If the user used the submit bar, then the second currency should already be populated for you; if not, choose a second currency from the drop down menu and input the amount you plan to take on your trip and click "Exchange". 
 - The user should see their destination country flag, their currency exchange and the symbol for that countries currency. The tanslator side works similarly to the exchange side in that it will use the submit bar to populate one of the fields. 
-- Users will notice if they used the submit bar the language or languages the countries use will be entered for you. Users can then enter in words or small phrases such as "How are you?" and "Hello World" to see that translated into their desired countries language. The website look was created using a combination of vanilla HTML and CSS as well as leveraging the Tailwind API for styling assistance.
+- Users will notice if they used the submit bar the language or languages the countries use will be entered for you. Users can then enter in words or small phrases such as "How are you?" and "Hello World" to see that translated into their desired countries language. The website look was created using a combination of vanilla HTML and CSS as well as leveraging the Tailwind Framework for styling assistance.
 
 ![Screenshot of Application](assets/images/screenshot.png)
 
